@@ -1,0 +1,245 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: #020617;
+  color: #e5e7eb;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 16px;
+  gap: 8px;
+}
+h1 {
+  font-size: 24px;
+  letter-spacing: 0.03em;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+#top-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+#top-bar span.label {
+  font-weight: 600;
+  color: #9ca3af;
+  margin-right: 4px;
+}
+#top-bar .pill {
+  background: #020617;
+  border-radius: 999px;
+  border: 1px solid #1f2937;
+  padding: 4px 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+#controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+}
+button {
+  border-radius: 999px;
+  border: 1px solid #4b5563;
+  background: #020617;
+  color: #e5e7eb;
+  padding: 4px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.1s, transform 0.1s, border-color 0.1s;
+}
+button:hover {
+  background: #111827;
+  border-color: #9ca3af;
+  transform: translateY(-1px);
+}
+button:disabled {
+  opacity: 0.4;
+  cursor: default;
+  transform: none;
+}
+
+#layout {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+#gameContainer {
+  position: relative;
+}
+
+canvas {
+  border-radius: 12px;
+  border: 2px solid #374151;
+  background: radial-gradient(circle at top, #020617 0, #020617 40%, #000 100%);
+  image-rendering: pixelated;
+}
+
+#loadingOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  z-index: 10;
+}
+.loader {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 4px solid #1f2937;
+  border-top-color: #38bdf8;
+  animation: spin 1s linear infinite;
+}
+.loading-text {
+  font-size: 12px;
+  color: #e5e7eb;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 260px;
+}
+
+#towerBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tower-card {
+  flex: 1 1 calc(50% - 4px);
+  min-width: 100px;
+  border-radius: 8px;
+  border: 1px solid #374151;
+  padding: 6px;
+  font-size: 11px;
+  background: #020617;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  position: relative;
+}
+.tower-card.selected {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 1px #22c55e55;
+}
+.tower-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+}
+.tower-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 1px solid #000;
+}
+.tower-cost {
+  font-size: 11px;
+  color: #a3e635;
+}
+.tower-desc {
+  font-size: 10px;
+  color: #9ca3af;
+}
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 2px;
+}
+.tag {
+  border-radius: 999px;
+  border: 1px solid #374151;
+  padding: 1px 4px;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #9ca3af;
+}
+
+#selectedPanel, #abilitiesPanel {
+  border-radius: 10px;
+  border: 1px solid #374151;
+  padding: 6px;
+  background: #020617;
+  font-size: 11px;
+}
+#selectedTitle {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+#selectedStats {
+  color: #9ca3af;
+  font-size: 10px;
+  margin-bottom: 4px;
+}
+#upgradeButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 4px;
+}
+.upgrade-row {
+  display: flex;
+  gap: 4px;
+}
+.upgrade-label {
+  font-size: 10px;
+  color: #9ca3af;
+  margin-bottom: 2px;
+}
+
+#abilitiesRow {
+  display: flex;
+  gap: 4px;
+  margin-top: 4px;
+}
+.ability-btn {
+  flex: 1 1 0;
+  font-size: 10px;
+}
+
+#message {
+  margin-top: 4px;
+  font-size: 11px;
+  min-height: 14px;
+  color: #e5e7eb;
+}
+#infoText {
+  margin-top: 4px;
+  font-size: 10px;
+  color: #9ca3af;
+  text-align: center;
+  max-width: 900px;
+}

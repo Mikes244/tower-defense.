@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Neon Path TD - Sprite Edition</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>NEON PATH TD</h1>
+  <div id="top-bar">
+    <div class="pill">
+      <span class="label">Money</span><span id="money">0</span>
+    </div>
+    <div class="pill">
+      <span class="label">Lives</span><span id="lives">0</span>
+    </div>
+    <div class="pill">
+      <span class="label">Wave</span><span id="wave">0</span>/<span id="maxWave">20</span>
+    </div>
+    <div class="pill">
+      <span class="label">Score</span><span id="score">0</span>
+    </div>
+    <div class="pill">
+      <span class="label">XP</span><span id="xp">0</span>
+      <span class="label">Lv</span><span id="level">1</span>
+    </div>
+    <div class="pill">
+      <span class="label">Speed</span><span id="speedLabel">1x</span>
+    </div>
+  </div>
+  <div id="controls">
+    <button id="btnStartWave">Start Wave</button>
+    <button id="btnPause">Pause</button>
+    <button id="btnSpeedDown">Speed -</button>
+    <button id="btnSpeedUp">Speed +</button>
+  </div>
+
+  <div id="layout">
+    <div id="gameContainer">
+      <canvas id="game" width="640" height="480"></canvas>
+      <div id="loadingOverlay">
+        <div class="loader"></div>
+        <div class="loading-text">Loading sprites...</div>
+      </div>
+    </div>
+    <div id="right-panel">
+      <div id="towerBar"></div>
+
+      <div id="selectedPanel">
+        <div id="selectedTitle">No tower selected</div>
+        <div id="selectedStats">Click a placed tower to inspect and upgrade.</div>
+        <div id="upgradeButtons">
+          <div class="upgrade-label">Upgrade Paths</div>
+          <div class="upgrade-row">
+            <button id="btnUpgradeA" disabled>Path A</button>
+            <button id="btnUpgradeB" disabled>Path B</button>
+          </div>
+          <button id="btnSell" disabled>Sell Tower</button>
+        </div>
+      </div>
+
+      <div id="abilitiesPanel">
+        <div style="font-weight:600;margin-bottom:2px;">Abilities</div>
+        <div style="font-size:10px;color:#9ca3af;">
+          Freeze slows all enemies; Storm damages all enemies.<br/>
+          Cooldowns refresh each wave.
+        </div>
+        <div id="abilitiesRow">
+          <button id="btnFreeze" class="ability-btn">Freeze</button>
+          <button id="btnStorm" class="ability-btn">Storm</button>
+        </div>
+      </div>
+
+      <div id="message"></div>
+    </div>
+  </div>
+
+  <div id="infoText">
+    Click a tower card, then click on green tiles (not on the neon path) to place towers.
+    Towers can be upgraded along two paths. Use abilities and speed control to survive all 20 waves.
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
